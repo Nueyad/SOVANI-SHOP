@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOVANI SHOP - Mua bán hack Free Fire</title>
+
+    <title>SOVANI SHOP - Free Fire</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -14,58 +16,250 @@
         }
 
         body {
-            background: #0b0f19;
+            background: #070b14;
             color: white;
         }
 
+
+        /* =========================
+           HEADER
+        ========================= */
+
         header {
+            height: 70px;
             background: #111827;
-            border-bottom: 1px solid #263044;
+            border-bottom: 1px solid #293247;
+
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
+
         .navbar {
+            width: 100%;
             max-width: 1200px;
-            margin: auto;
             height: 70px;
+
+            margin: auto;
+            padding: 0 25px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 20px;
         }
 
-        /* LOGO RGB */
+
+        /* LOGO NHỎ HƠN */
 
         .logo {
-            font-size: 25px;
-            font-weight: bold;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 1px;
 
             background: linear-gradient(
                 90deg,
-                #ff0000,
-                #ff7a00,
-                #ffff00,
-                #00ff00,
-                #00ffff,
-                #008cff,
-                #8a2be2,
-                #ff00ff,
-                #ff0000
+                red,
+                orange,
+                yellow,
+                lime,
+                cyan,
+                blue,
+                violet,
+                magenta,
+                red
             );
 
             background-size: 400% 100%;
+
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
 
-            animation: rgbLogo 5s linear infinite;
-
-            text-shadow:
-                0 0 10px rgba(255,255,255,.25);
+            animation: rgb 5s linear infinite;
         }
 
-        @keyframes rgbLogo {
+
+        /* =========================
+           NÚT 3 GẠCH
+        ========================= */
+
+        .menu-btn {
+
+            width: 45px;
+            height: 45px;
+
+            border: none;
+            border-radius: 10px;
+
+            background: #171e2d;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 5px;
+
+            cursor: pointer;
+
+            border: 1px solid #2d3850;
+        }
+
+
+        .menu-btn span {
+
+            width: 24px;
+            height: 3px;
+
+            background: white;
+
+            border-radius: 10px;
+
+            transition: 0.3s;
+        }
+
+
+        .menu-btn:hover {
+
+            border-color: #00ffff;
+
+            box-shadow:
+                0 0 10px rgba(0,255,255,.3);
+        }
+
+
+        /* =========================
+           MENU
+        ========================= */
+
+        .menu {
+
+            position: fixed;
+
+            top: 70px;
+            right: -300px;
+
+            width: 280px;
+
+            min-height: calc(100vh - 70px);
+
+            background: #101725;
+
+            border-left: 1px solid #293247;
+
+            padding: 25px 20px;
+
+            transition: 0.35s;
+
+            z-index: 999;
+        }
+
+
+        .menu.active {
+            right: 0;
+        }
+
+
+        .menu-title {
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            color: white;
+
+            margin-bottom: 20px;
+
+            padding-bottom: 15px;
+
+            border-bottom: 1px solid #293247;
+        }
+
+
+        .menu a {
+
+            display: block;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            padding: 15px;
+
+            margin-bottom: 8px;
+
+            border-radius: 8px;
+
+            transition: .2s;
+        }
+
+
+        .menu a:hover {
+
+            background: #1b2435;
+
+            transform: translateX(4px);
+        }
+
+
+        /* =========================
+           NÚT ĐĂNG NHẬP RGB
+        ========================= */
+
+        .login-rgb {
+
+            margin-top: 20px;
+
+            text-align: center;
+
+            color: white !important;
+
+            font-weight: bold !important;
+
+            background: linear-gradient(
+                90deg,
+                red,
+                orange,
+                yellow,
+                lime,
+                cyan,
+                blue,
+                violet,
+                magenta,
+                red
+            );
+
+            background-size: 400% 100%;
+
+            animation: rgb 3s linear infinite;
+
+            box-shadow:
+                0 0 10px rgba(0,255,255,.3),
+                0 0 20px rgba(255,0,255,.2);
+        }
+
+
+        .login-rgb:hover {
+
+            transform: scale(1.03) !important;
+
+            box-shadow:
+                0 0 15px cyan,
+                0 0 25px magenta;
+        }
+
+
+        /* =========================
+           RGB ANIMATION
+        ========================= */
+
+        @keyframes rgb {
+
             0% {
                 background-position: 0% 50%;
             }
@@ -73,36 +267,868 @@
             100% {
                 background-position: 400% 50%;
             }
+
         }
 
-        nav a {
-            color: #ddd;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 15px;
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            min-height: 680px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            background:
+
+                radial-gradient(
+                    circle at center,
+                    rgba(35,55,100,.25),
+                    transparent 50%
+                ),
+
+                #070b14;
         }
 
-        nav a:hover {
-            color: #00ffff;
+
+        .hero h1 {
+
+            font-size: 48px;
+
+            margin-bottom: 20px;
+
+            font-weight: 800;
         }
 
-        .login-btn {
+
+        .hero h1 span {
+
             background: linear-gradient(
                 90deg,
-                #ff0000,
-                #00ffff,
-                #ff00ff
+                magenta,
+                red,
+                orange,
+                yellow,
+                cyan,
+                blue,
+                magenta
             );
 
-            background-size: 300% 100%;
-            animation: rgbLogo 3s linear infinite;
+            background-size: 400% 100%;
 
-            color: white !important;
-            padding: 10px 16px;
-            border-radius: 8px;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: rgb 4s linear infinite;
+
+            filter:
+                drop-shadow(0 0 10px rgba(255,0,255,.4));
+        }
+
+
+        .hero p {
+
+            color: #c4c9d4;
+
+            font-size: 18px;
+
+            margin-bottom: 35px;
+        }
+
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .search-box {
+
+            width: min(650px, 100%);
+
+            margin: auto;
+
+            display: flex;
+
+            gap: 10px;
+        }
+
+
+        .search-box input {
+
+            flex: 1;
+
+            padding: 17px;
+
+            border: none;
+
+            outline: none;
+
+            border-radius: 10px;
+
+            font-size: 17px;
+        }
+
+
+        .search-box button {
+
+            border: none;
+
+            padding: 0 28px;
+
+            border-radius: 10px;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            background: linear-gradient(
+                90deg,
+                #557cff,
+                #ff00dd,
+                #ff0088
+            );
+
+            box-shadow:
+                0 0 15px rgba(255,0,200,.25);
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .container {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 60px 25px;
+        }
+
+
+        .section-title {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 30px;
+        }
+
+
+        .section-title h2 {
+
+            font-size: 30px;
+        }
+
+
+        .section-title span {
+
+            background: linear-gradient(
+                90deg,
+                blue,
+                magenta,
+                red
+            );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            font-size: 20px;
+
             font-weight: bold;
         }
 
+
+        /* =========================
+           FILTER
+        ========================= */
+
+        .filters {
+
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 30px;
+        }
+
+
+        .filters button {
+
+            padding: 13px 20px;
+
+            border-radius: 10px;
+
+            border: 1px solid #293247;
+
+            background: #151d2d;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .filters button:hover,
+        .filters button.active {
+
+            background: linear-gradient(
+                90deg,
+                red,
+                cyan,
+                blue,
+                magenta
+            );
+
+            border-color: transparent;
+        }
+
+
+        /* =========================
+           EMPTY SHOP
+        ========================= */
+
+        .empty-shop {
+
+            min-height: 250px;
+
+            background: #111827;
+
+            border: 1px solid #253047;
+
+            border-radius: 15px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+        }
+
+
+        .empty-icon {
+
+            font-size: 55px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .empty-shop h3 {
+
+            font-size: 22px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .empty-shop p {
+
+            color: #8993a5;
+        }
+
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+
+            margin-top: 50px;
+        }
+
+
+        .stat {
+
+            background: #111827;
+
+            border: 1px solid #253047;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            text-align: center;
+        }
+
+
+        .stat strong {
+
+            display: block;
+
+            font-size: 30px;
+
+            margin-bottom: 8px;
+
+            background: linear-gradient(
+                90deg,
+                red,
+                orange,
+                yellow,
+                cyan,
+                blue,
+                magenta,
+                red
+            );
+
+            background-size: 400% 100%;
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            animation: rgb 4s linear infinite;
+        }
+
+
+        .stat p {
+
+            color: #9ca5b5;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            margin-top: 30px;
+
+            padding: 35px 20px;
+
+            text-align: center;
+
+            background: #080c14;
+
+            border-top: 1px solid #20293a;
+
+            color: #7f899a;
+        }
+
+
+        footer strong {
+
+            background: linear-gradient(
+                90deg,
+                red,
+                cyan,
+                blue,
+                magenta,
+                red
+            );
+
+            background-size: 400% 100%;
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            animation: rgb 4s linear infinite;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            header,
+            .navbar {
+                height: 65px;
+            }
+
+
+            .navbar {
+
+                padding: 0 18px;
+            }
+
+
+            .logo {
+
+                font-size: 19px;
+            }
+
+
+            .menu {
+
+                top: 65px;
+
+                width: 270px;
+
+                min-height:
+                    calc(100vh - 65px);
+            }
+
+
+            .hero {
+
+                min-height: 680px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 36px;
+            }
+
+
+            .hero p {
+
+                font-size: 17px;
+            }
+
+
+            .search-box {
+
+                flex-direction: column;
+            }
+
+
+            .search-box input {
+
+                width: 100%;
+
+                padding: 18px;
+            }
+
+
+            .search-box button {
+
+                width: 100%;
+
+                padding: 17px;
+            }
+
+
+            .section-title h2 {
+
+                font-size: 27px;
+            }
+
+
+            .section-title span {
+
+                font-size: 17px;
+            }
+
+
+            .stats {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+            SOVANI SHOP
+        </div>
+
+
+        <!-- NÚT 3 GẠCH -->
+
+        <button
+            class="menu-btn"
+            onclick="toggleMenu()"
+            aria-label="Mở menu">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<div class="menu" id="menu">
+
+    <div class="menu-title">
+        MENU
+    </div>
+
+
+    <a href="#">
+        🏠 Trang chủ
+    </a>
+
+
+    <a href="#shop">
+        🎮 Shop Free Fire
+    </a>
+
+
+    <a href="#about">
+        ℹ️ Giới thiệu
+    </a>
+
+
+    <a href="#contact">
+        📞 Liên hệ
+    </a>
+
+
+    <a href="#">
+        🛒 Đơn hàng
+    </a>
+
+
+    <a href="#">
+        ❤️ Yêu thích
+    </a>
+
+
+    <a href="#">
+        ⚙️ Cài đặt
+    </a>
+
+
+    <!-- ĐĂNG NHẬP RGB -->
+
+    <a
+        href="#"
+        class="login-rgb"
+        onclick="login()">
+
+        🔐 ĐĂNG NHẬP
+
+    </a>
+
+</div>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div>
+
+        <h1>
+            <span>SOVANI SHOP</span>
+        </h1>
+
+
+        <p>
+            Mua bán tài khoản Free Fire
+            uy tín và tiện lợi
+        </p>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                placeholder="Tìm kiếm sản phẩm..."
+            >
+
+
+            <button onclick="searchProduct()">
+                Tìm kiếm
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SHOP
+========================= -->
+
+<main
+    class="container"
+    id="shop">
+
+
+    <div class="section-title">
+
+        <h2>
+            🔥 Free Fire
+        </h2>
+
+
+        <span>
+            0 sản phẩm
+        </span>
+
+    </div>
+
+
+    <div class="filters">
+
+        <button class="active">
+            Tất cả
+        </button>
+
+
+        <button>
+            Dưới 100K
+        </button>
+
+
+        <button>
+            100K - 500K
+        </button>
+
+
+        <button>
+            VIP
+        </button>
+
+    </div>
+
+
+    <div class="empty-shop">
+
+        <div class="empty-icon">
+            🛒
+        </div>
+
+
+        <h3>
+            Chưa có sản phẩm
+        </h3>
+
+
+        <p>
+            SOVANI SHOP hiện chưa đăng bán sản phẩm nào.
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         THỐNG KÊ
+    ========================= -->
+
+    <div
+        class="stats"
+        id="about">
+
+
+        <div class="stat">
+
+            <strong>
+                0+
+            </strong>
+
+            <p>
+                Tài khoản đã bán
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                0+
+            </strong>
+
+            <p>
+                Khách hàng
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                24/7
+            </strong>
+
+            <p>
+                Hỗ trợ khách hàng
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer id="contact">
+
+    <p>
+
+        © 2026
+
+        <strong>
+            SOVANI SHOP
+        </strong>
+
+    </p>
+
+
+    <p style="margin-top:8px;">
+
+        Website mua bán Free Fire.
+
+    </p>
+
+</footer>
+
+
+<script>
+
+    /* =========================
+       MỞ / ĐÓNG MENU
+    ========================= */
+
+    function toggleMenu() {
+
+        const menu =
+            document.getElementById("menu");
+
+        menu.classList.toggle("active");
+
+    }
+
+
+    /* =========================
+       ĐĂNG NHẬP
+    ========================= */
+
+    function login() {
+
+        alert(
+            "Chức năng đăng nhập đang được phát triển."
+        );
+
+    }
+
+
+    /* =========================
+       TÌM KIẾM
+    ========================= */
+
+    function searchProduct() {
+
+        const input =
+            document.querySelector(
+                ".search-box input"
+            );
+
+        const keyword =
+            input.value.trim();
+
+        if (keyword === "") {
+
+            alert(
+                "Vui lòng nhập sản phẩm cần tìm."
+            );
+
+            return;
+        }
+
+
+        alert(
+            "Đang tìm kiếm: " + keyword
+        );
+
+    }
+
+
+    /* =========================
+       CLICK NGOÀI MENU
+    ========================= */
+
+    document.addEventListener(
+        "click",
+        function(event) {
+
+            const menu =
+                document.getElementById("menu");
+
+            const button =
+                document.querySelector(".menu-btn");
+
+
+            if (
+                menu.classList.contains("active") &&
+                !menu.contains(event.target) &&
+                !button.contains(event.target)
+            ) {
+
+                menu.classList.remove("active");
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+</html>
         /* HERO */
 
         .hero {
