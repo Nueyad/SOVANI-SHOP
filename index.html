@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FF MARKET - Mua Bán Shop Free Fire</title>
+    <title>SOVANI SHOP - Mua Bán Shop Free Fire</title>
 
     <style>
         * {
@@ -18,7 +18,6 @@
             color: white;
         }
 
-        /* HEADER */
         header {
             background: #111827;
             border-bottom: 1px solid #263044;
@@ -67,6 +66,7 @@
         }
 
         /* HERO */
+
         .hero {
             min-height: 360px;
             display: flex;
@@ -76,8 +76,15 @@
             padding: 50px 20px;
 
             background:
-                linear-gradient(rgba(5,8,15,.72), rgba(5,8,15,.9)),
-                radial-gradient(circle at center, #263d69, #080b12);
+                linear-gradient(
+                    rgba(5,8,15,.72),
+                    rgba(5,8,15,.9)
+                ),
+                radial-gradient(
+                    circle at center,
+                    #263d69,
+                    #080b12
+                );
         }
 
         .hero h1 {
@@ -119,7 +126,8 @@
             cursor: pointer;
         }
 
-        /* CONTAINER */
+        /* CONTENT */
+
         .container {
             max-width: 1200px;
             margin: 40px auto;
@@ -142,6 +150,7 @@
         }
 
         /* FILTER */
+
         .filters {
             display: flex;
             gap: 12px;
@@ -158,79 +167,44 @@
             cursor: pointer;
         }
 
-        .filters button:hover,
-        .filters button.active {
+        .filters button:hover {
             background: #ffb000;
             color: #111;
         }
 
-        /* PRODUCTS */
-        .products {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
+        /* EMPTY SHOP */
 
-        .card {
+        .empty-shop {
+            min-height: 250px;
             background: #131a29;
             border: 1px solid #222c40;
             border-radius: 12px;
-            overflow: hidden;
-            transition: .25s;
-        }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #ffb000;
-            box-shadow: 0 10px 30px rgba(0,0,0,.3);
-        }
-
-        .card-img {
-            height: 180px;
-            background: linear-gradient(135deg, #283e6b, #151b29);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+
+            text-align: center;
+            padding: 30px;
+        }
+
+        .empty-icon {
             font-size: 55px;
+            margin-bottom: 15px;
         }
 
-        .card-content {
-            padding: 15px;
-        }
-
-        .card h3 {
-            font-size: 17px;
+        .empty-shop h3 {
+            font-size: 22px;
             margin-bottom: 10px;
         }
 
-        .info {
-            color: #9ca5b5;
-            font-size: 13px;
-            line-height: 1.8;
-        }
-
-        .price {
-            color: #ffb000;
-            font-size: 20px;
-            font-weight: bold;
-            margin: 12px 0;
-        }
-
-        .buy-btn {
-            width: 100%;
-            border: none;
-            background: #ffb000;
-            padding: 11px;
-            border-radius: 7px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .buy-btn:hover {
-            background: #ffc43d;
+        .empty-shop p {
+            color: #8f99aa;
         }
 
         /* STATS */
+
         .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -258,6 +232,7 @@
         }
 
         /* FOOTER */
+
         footer {
             margin-top: 60px;
             background: #080c14;
@@ -271,52 +246,9 @@
             color: #ffb000;
         }
 
-        /* MODAL */
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,.75);
-            z-index: 200;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
+        /* MOBILE */
 
-        .modal-box {
-            background: #151d2c;
-            width: 450px;
-            max-width: 100%;
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid #33405a;
-        }
-
-        .modal-box h2 {
-            margin-bottom: 15px;
-        }
-
-        .modal-box p {
-            color: #aeb7c6;
-            line-height: 1.7;
-        }
-
-        .close {
-            float: right;
-            font-size: 25px;
-            cursor: pointer;
-            color: #aaa;
-        }
-
-        .close:hover {
-            color: white;
-        }
-
-        /* RESPONSIVE */
         @media (max-width: 900px) {
-            .products {
-                grid-template-columns: repeat(2, 1fr);
-            }
 
             nav {
                 display: none;
@@ -325,19 +257,30 @@
             .hero h1 {
                 font-size: 36px;
             }
-        }
-
-        @media (max-width: 550px) {
-            .products {
-                grid-template-columns: 1fr;
-            }
 
             .stats {
                 grid-template-columns: 1fr;
             }
+        }
+
+        @media (max-width: 550px) {
 
             .hero h1 {
                 font-size: 30px;
+            }
+
+            .search-box {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .search-box input {
+                border-radius: 8px;
+            }
+
+            .search-box button {
+                border-radius: 8px;
+                padding: 13px;
             }
         }
     </style>
@@ -346,8 +289,12 @@
 <body>
 
 <header>
+
     <div class="navbar">
-        <div class="logo">FF <span>MARKET</span></div>
+
+        <div class="logo">
+            SOVANI <span>SHOP</span>
+        </div>
 
         <nav>
             <a href="#">Trang chủ</a>
@@ -356,246 +303,134 @@
             <a href="#contact">Liên hệ</a>
             <a href="#" class="login-btn">Đăng nhập</a>
         </nav>
+
     </div>
+
 </header>
 
+
+<!-- HERO -->
+
 <section class="hero">
+
     <div>
-        <h1>MUA BÁN <span>SHOP FREE FIRE</span></h1>
-        <p>Tìm kiếm tài khoản phù hợp với nhu cầu của bạn</p>
+
+        <h1>
+            <span>SOVANI SHOP</span>
+        </h1>
+
+        <p>
+            Mua bán tài khoản Free Fire
+            uy tín và tiện lợi
+        </p>
 
         <div class="search-box">
+
             <input
                 type="text"
-                id="search"
-                placeholder="Nhập ID, rank, giá..."
-                onkeyup="searchProduct()"
+                placeholder="Tìm kiếm sản phẩm..."
             >
-            <button onclick="searchProduct()">Tìm kiếm</button>
+
+            <button>
+                Tìm kiếm
+            </button>
+
         </div>
+
     </div>
+
 </section>
+
+
+<!-- SHOP -->
 
 <main class="container" id="shop">
 
     <div class="section-title">
-        <h2>🔥 Shop <span>Free Fire</span></h2>
-        <span id="count">8 sản phẩm</span>
+
+        <h2>
+            🔥 Shop <span>Free Fire</span>
+        </h2>
+
+        <span>0 sản phẩm</span>
+
     </div>
 
+
     <div class="filters">
-        <button class="active" onclick="filterProduct('all', this)">
+
+        <button class="active">
             Tất cả
         </button>
 
-        <button onclick="filterProduct('100k', this)">
+        <button>
             Dưới 100K
         </button>
 
-        <button onclick="filterProduct('500k', this)">
+        <button>
             100K - 500K
         </button>
 
-        <button onclick="filterProduct('vip', this)">
+        <button>
             VIP
         </button>
-    </div>
-
-    <div class="products" id="products">
-
-        <div class="card" data-price="50000" data-type="normal">
-            <div class="card-img">🎮</div>
-
-            <div class="card-content">
-                <h3>ACC FREE FIRE #1001</h3>
-
-                <div class="info">
-                    ⭐ Rank: Kim Cương<br>
-                    🎒 Skin: 25<br>
-                    🔥 Level: 55
-                </div>
-
-                <div class="price">50.000đ</div>
-
-                <button class="buy-btn"
-                    onclick="openModal('ACC FREE FIRE #1001', '50.000đ')">
-                    Xem chi tiết
-                </button>
-            </div>
-        </div>
-
-
-        <div class="card" data-price="120000" data-type="normal">
-            <div class="card-img">🔥</div>
-
-            <div class="card-content">
-                <h3>ACC FREE FIRE #1002</h3>
-
-                <div class="info">
-                    ⭐ Rank: Huyền Thoại<br>
-                    🎒 Skin: 50<br>
-                    🔥 Level: 60
-                </div>
-
-                <div class="price">120.000đ</div>
-
-                <button class="buy-btn"
-                    onclick="openModal('ACC FREE FIRE #1002', '120.000đ')">
-                    Xem chi tiết
-                </button>
-            </div>
-        </div>
-
-
-        <div class="card" data-price="250000" data-type="normal">
-            <div class="card-img">⚡</div>
-
-            <div class="card-content">
-                <h3>ACC FREE FIRE #1003</h3>
-
-                <div class="info">
-                    ⭐ Rank: Grandmaster<br>
-                    🎒 Skin: 80<br>
-                    🔥 Level: 65
-                </div>
-
-                <div class="price">250.000đ</div>
-
-                <button class="buy-btn"
-                    onclick="openModal('ACC FREE FIRE #1003', '250.000đ')">
-                    Xem chi tiết
-                </button>
-            </div>
-        </div>
-
-
-        <div class="card" data-price="450000" data-type="vip">
-            <div class="card-img">👑</div>
-
-            <div class="card-content">
-                <h3>ACC VIP #1004</h3>
-
-                <div class="info">
-                    ⭐ Rank: Grandmaster<br>
-                    🎒 Skin: 150+<br>
-                    🔥 Level: 70
-                </div>
-
-                <div class="price">450.000đ</div>
-
-                <button class="buy-btn"
-                    onclick="openModal('ACC VIP #1004', '450.000đ')">
-                    Xem chi tiết
-                </button>
-            </div>
-        </div>
-
-
-        <div class="card" data-price="70000" data-type="normal">
-            <div class="card-img">🎯</div>
-
-            <div class="card-content">
-                <h3>ACC FREE FIRE #1005</h3>
-
-                <div class="info">
-                    ⭐ Rank: Bạch Kim<br>
-                    🎒 Skin: 20<br>
-                    🔥 Level: 48
-                </div>
-
-                <div class="price">70.000đ</div>
-
-                <button class="buy-btn"
-                    onclick="openModal('ACC FREE FIRE #1005', '70.000đ')">
-                    Xem chi tiết
-                </button>
-            </div>
-        </div>
-
-
-        <div class="card" data-price="180000" data-type="normal">
-            <div class="card-img">💎</div>
-
-            <div class="card-content">
-                <h3>ACC FREE FIRE #1006</h3>
-
-                <div class="info">
-                    ⭐ Rank: Huyền Thoại<br>
-                    🎒 Skin: 65<br>
-                    🔥 Level: 62
-                </div>
-
-                <div class="price">180.000đ</div>
-
-                <button class="buy-btn"
-                    onclick="openModal('ACC FREE FIRE #1006', '180.000đ')">
-                    Xem chi tiết
-                </button>
-            </div>
-        </div>
-
-
-        <div class="card" data-price="650000" data-type="vip">
-            <div class="card-img">🏆</div>
-
-            <div class="card-content">
-                <h3>ACC VIP #1007</h3>
-
-                <div class="info">
-                    ⭐ Rank: Grandmaster<br>
-                    🎒 Skin: 200+<br>
-                    🔥 Level: 75
-                </div>
-
-                <div class="price">650.000đ</div>
-
-                <button class="buy-btn"
-                    onclick="openModal('ACC VIP #1007', '650.000đ')">
-                    Xem chi tiết
-                </button>
-            </div>
-        </div>
-
-
-        <div class="card" data-price="90000" data-type="normal">
-            <div class="card-img">🚀</div>
-
-            <div class="card-content">
-                <h3>ACC FREE FIRE #1008</h3>
-
-                <div class="info">
-                    ⭐ Rank: Kim Cương<br>
-                    🎒 Skin: 35<br>
-                    🔥 Level: 52
-                </div>
-
-                <div class="price">90.000đ</div>
-
-                <button class="buy-btn"
-                    onclick="openModal('ACC FREE FIRE #1008', '90.000đ')">
-                    Xem chi tiết
-                </button>
-            </div>
-        </div>
 
     </div>
 
+
+    <!-- KHÔNG CÓ SẢN PHẨM -->
+
+    <div class="empty-shop">
+
+        <div class="empty-icon">
+            🛒
+        </div>
+
+        <h3>
+            Chưa có sản phẩm
+        </h3>
+
+        <p>
+            SOVANI SHOP hiện chưa đăng bán sản phẩm nào.
+        </p>
+
+    </div>
+
+
+    <!-- THỐNG KÊ -->
 
     <div class="stats" id="about">
 
         <div class="stat">
-            <strong>1.250+</strong>
-            <p>Tài khoản đã bán</p>
+
+            <strong>0+</strong>
+
+            <p>
+                Tài khoản đã bán
+            </p>
+
         </div>
 
-        <div class="stat">
-            <strong>850+</strong>
-            <p>Khách hàng</p>
-        </div>
 
         <div class="stat">
+
+            <strong>0+</strong>
+
+            <p>
+                Khách hàng
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
             <strong>24/7</strong>
-            <p>Hỗ trợ khách hàng</p>
+
+            <p>
+                Hỗ trợ khách hàng
+            </p>
+
         </div>
 
     </div>
@@ -603,191 +438,19 @@
 </main>
 
 
+<!-- FOOTER -->
+
 <footer id="contact">
+
     <p>
-        © 2026 <strong>FF MARKET</strong> — Website demo marketplace.
+        © 2026 <strong>SOVANI SHOP</strong>
     </p>
 
     <p style="margin-top:8px;">
-        Hãy tuân thủ điều khoản dịch vụ của nhà phát hành khi sử dụng.
+        Website mua bán Free Fire.
     </p>
+
 </footer>
-
-
-<!-- MODAL -->
-
-<div class="modal" id="modal">
-
-    <div class="modal-box">
-
-        <span class="close" onclick="closeModal()">×</span>
-
-        <h2 id="modalTitle">Tên tài khoản</h2>
-
-        <p>
-            Bạn đang xem sản phẩm:
-            <strong id="modalProduct"></strong>
-        </p>
-
-        <p style="margin-top:10px;">
-            Giá bán:
-            <strong id="modalPrice" style="color:#ffb000;"></strong>
-        </p>
-
-        <button
-            class="buy-btn"
-            style="margin-top:20px;"
-            onclick="buyProduct()">
-            🛒 Tiến hành mua
-        </button>
-
-    </div>
-
-</div>
-
-
-<script>
-
-    /* TÌM KIẾM */
-
-    function searchProduct() {
-
-        const keyword =
-            document.getElementById("search")
-            .value
-            .toLowerCase();
-
-        const cards =
-            document.querySelectorAll(".card");
-
-        let count = 0;
-
-        cards.forEach(card => {
-
-            const text =
-                card.innerText.toLowerCase();
-
-            if (text.includes(keyword)) {
-                card.style.display = "block";
-                count++;
-            } else {
-                card.style.display = "none";
-            }
-
-        });
-
-        document.getElementById("count").innerText =
-            count + " sản phẩm";
-    }
-
-
-    /* LỌC SẢN PHẨM */
-
-    function filterProduct(type, button) {
-
-        document
-            .querySelectorAll(".filters button")
-            .forEach(btn => btn.classList.remove("active"));
-
-        button.classList.add("active");
-
-        const cards =
-            document.querySelectorAll(".card");
-
-        let count = 0;
-
-        cards.forEach(card => {
-
-            const price =
-                Number(card.dataset.price);
-
-            const productType =
-                card.dataset.type;
-
-            let show = false;
-
-            if (type === "all") {
-                show = true;
-            }
-
-            if (type === "100k" && price < 100000) {
-                show = true;
-            }
-
-            if (
-                type === "500k" &&
-                price >= 100000 &&
-                price <= 500000
-            ) {
-                show = true;
-            }
-
-            if (
-                type === "vip" &&
-                productType === "vip"
-            ) {
-                show = true;
-            }
-
-            card.style.display =
-                show ? "block" : "none";
-
-            if (show) count++;
-
-        });
-
-        document.getElementById("count").innerText =
-            count + " sản phẩm";
-    }
-
-
-    /* MODAL */
-
-    function openModal(name, price) {
-
-        document.getElementById("modal").style.display =
-            "flex";
-
-        document.getElementById("modalTitle").innerText =
-            name;
-
-        document.getElementById("modalProduct").innerText =
-            name;
-
-        document.getElementById("modalPrice").innerText =
-            price;
-    }
-
-
-    function closeModal() {
-
-        document.getElementById("modal").style.display =
-            "none";
-    }
-
-
-    function buyProduct() {
-
-        alert(
-            "Đây là bản demo. Chức năng thanh toán chưa được kết nối."
-        );
-    }
-
-
-    /* ĐÓNG MODAL KHI CLICK RA NGOÀI */
-
-    window.onclick = function(event) {
-
-        const modal =
-            document.getElementById("modal");
-
-        if (event.target === modal) {
-            closeModal();
-        }
-
-    }
-
-</script>
 
 </body>
 </html>
