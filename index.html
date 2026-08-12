@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>SOVANI SHOP - Free Fire</title>
+    <title>SOVANI SHOP - Mua Bán Shop Free Fire</title>
 
     <style>
 
@@ -16,241 +15,8 @@
         }
 
         body {
-            background: #070b14;
+            background: #080c15;
             color: white;
-        }
-
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            height: 70px;
-            background: #111827;
-            border-bottom: 1px solid #293247;
-
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-
-        .navbar {
-            width: 100%;
-            max-width: 1200px;
-            height: 70px;
-
-            margin: auto;
-            padding: 0 25px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-
-        /* LOGO NHỎ HƠN */
-
-        .logo {
-            font-size: 21px;
-            font-weight: 800;
-            letter-spacing: 1px;
-
-            background: linear-gradient(
-                90deg,
-                red,
-                orange,
-                yellow,
-                lime,
-                cyan,
-                blue,
-                violet,
-                magenta,
-                red
-            );
-
-            background-size: 400% 100%;
-
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-
-            animation: rgb 5s linear infinite;
-        }
-
-
-        /* =========================
-           NÚT 3 GẠCH
-        ========================= */
-
-        .menu-btn {
-
-            width: 45px;
-            height: 45px;
-
-            border: none;
-            border-radius: 10px;
-
-            background: #171e2d;
-
-            display: flex;
-            flex-direction: column;
-
-            justify-content: center;
-            align-items: center;
-
-            gap: 5px;
-
-            cursor: pointer;
-
-            border: 1px solid #2d3850;
-        }
-
-
-        .menu-btn span {
-
-            width: 24px;
-            height: 3px;
-
-            background: white;
-
-            border-radius: 10px;
-
-            transition: 0.3s;
-        }
-
-
-        .menu-btn:hover {
-
-            border-color: #00ffff;
-
-            box-shadow:
-                0 0 10px rgba(0,255,255,.3);
-        }
-
-
-        /* =========================
-           MENU
-        ========================= */
-
-        .menu {
-
-            position: fixed;
-
-            top: 70px;
-            right: -300px;
-
-            width: 280px;
-
-            min-height: calc(100vh - 70px);
-
-            background: #101725;
-
-            border-left: 1px solid #293247;
-
-            padding: 25px 20px;
-
-            transition: 0.35s;
-
-            z-index: 999;
-        }
-
-
-        .menu.active {
-            right: 0;
-        }
-
-
-        .menu-title {
-
-            font-size: 20px;
-
-            font-weight: bold;
-
-            color: white;
-
-            margin-bottom: 20px;
-
-            padding-bottom: 15px;
-
-            border-bottom: 1px solid #293247;
-        }
-
-
-        .menu a {
-
-            display: block;
-
-            color: white;
-
-            font-size: 16px;
-
-            font-weight: bold;
-
-            text-decoration: none;
-
-            padding: 15px;
-
-            margin-bottom: 8px;
-
-            border-radius: 8px;
-
-            transition: .2s;
-        }
-
-
-        .menu a:hover {
-
-            background: #1b2435;
-
-            transform: translateX(4px);
-        }
-
-
-        /* =========================
-           NÚT ĐĂNG NHẬP RGB
-        ========================= */
-
-        .login-rgb {
-
-            margin-top: 20px;
-
-            text-align: center;
-
-            color: white !important;
-
-            font-weight: bold !important;
-
-            background: linear-gradient(
-                90deg,
-                red,
-                orange,
-                yellow,
-                lime,
-                cyan,
-                blue,
-                violet,
-                magenta,
-                red
-            );
-
-            background-size: 400% 100%;
-
-            animation: rgb 3s linear infinite;
-
-            box-shadow:
-                0 0 10px rgba(0,255,255,.3),
-                0 0 20px rgba(255,0,255,.2);
-        }
-
-
-        .login-rgb:hover {
-
-            transform: scale(1.03) !important;
-
-            box-shadow:
-                0 0 15px cyan,
-                0 0 25px magenta;
         }
 
 
@@ -258,7 +24,7 @@
            RGB ANIMATION
         ========================= */
 
-        @keyframes rgb {
+        @keyframes rgbLogo {
 
             0% {
                 background-position: 0% 50%;
@@ -272,12 +38,364 @@
 
 
         /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #111827;
+            border-bottom: 1px solid #263044;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+        }
+
+
+        .navbar {
+            max-width: 1200px;
+
+            height: 65px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 20px;
+        }
+
+
+        /* LOGO NHỎ HƠN */
+
+        .logo {
+
+            font-size: 21px;
+
+            font-weight: 800;
+
+            background: linear-gradient(
+                90deg,
+                red,
+                orange,
+                yellow,
+                lime,
+                cyan,
+                blue,
+                violet,
+                magenta,
+                red
+            );
+
+            background-size: 400% 100%;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: rgbLogo 5s linear infinite;
+        }
+
+
+        /* NAV DESKTOP */
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            transition: .2s;
+        }
+
+
+        nav a:hover {
+            color: #00ffff;
+        }
+
+
+        /* NÚT ĐĂNG NHẬP RGB */
+
+        .login-btn {
+
+            border: none;
+
+            cursor: pointer;
+
+            color: white !important;
+
+            font-weight: bold;
+
+            padding: 10px 17px;
+
+            border-radius: 8px;
+
+            background: linear-gradient(
+                90deg,
+                red,
+                orange,
+                yellow,
+                lime,
+                cyan,
+                blue,
+                magenta,
+                red
+            );
+
+            background-size: 400% 100%;
+
+            animation: rgbLogo 3s linear infinite;
+
+            box-shadow:
+                0 0 10px rgba(0,255,255,.3);
+        }
+
+
+        /* =========================
+           HAMBURGER
+        ========================= */
+
+        .menu-btn {
+
+            width: 44px;
+            height: 44px;
+
+            border-radius: 9px;
+
+            border: 1px solid #34405a;
+
+            background: #151c2b;
+
+            cursor: pointer;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 5px;
+
+            transition: .2s;
+        }
+
+
+        .menu-btn:hover {
+            border-color: #00ffff;
+            box-shadow: 0 0 12px rgba(0,255,255,.25);
+        }
+
+
+        .menu-btn span {
+
+            width: 23px;
+            height: 3px;
+
+            background: white;
+
+            border-radius: 5px;
+        }
+
+
+        /* =========================
+           SIDE MENU
+        ========================= */
+
+        .side-menu {
+
+            position: fixed;
+
+            top: 0;
+            right: -330px;
+
+            width: 310px;
+
+            height: 100vh;
+
+            background: #101724;
+
+            border-left: 1px solid #303b55;
+
+            z-index: 3000;
+
+            padding: 25px;
+
+            transition: .35s;
+
+            box-shadow:
+                -10px 0 30px rgba(0,0,0,.5);
+        }
+
+
+        .side-menu.active {
+            right: 0;
+        }
+
+
+        .menu-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 25px;
+        }
+
+
+        .menu-title {
+
+            font-size: 21px;
+
+            font-weight: bold;
+
+            background: linear-gradient(
+                90deg,
+                red,
+                cyan,
+                blue,
+                magenta,
+                red
+            );
+
+            background-size: 400% 100%;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: rgbLogo 4s linear infinite;
+        }
+
+
+        .close-menu {
+
+            border: none;
+
+            background: none;
+
+            color: white;
+
+            font-size: 30px;
+
+            cursor: pointer;
+        }
+
+
+        .menu-item {
+
+            width: 100%;
+
+            padding: 15px;
+
+            margin-bottom: 10px;
+
+            border-radius: 9px;
+
+            border: 1px solid #293348;
+
+            background: #151c2b;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            display: block;
+
+            cursor: pointer;
+
+            transition: .2s;
+        }
+
+
+        .menu-item:hover {
+
+            background: #202a3e;
+
+            border-color: #00ffff;
+
+            transform: translateX(-3px);
+        }
+
+
+        /* ĐĂNG NHẬP TRONG MENU */
+
+        .menu-login {
+
+            background: linear-gradient(
+                90deg,
+                red,
+                orange,
+                yellow,
+                lime,
+                cyan,
+                blue,
+                magenta,
+                red
+            );
+
+            background-size: 400% 100%;
+
+            animation: rgbLogo 3s linear infinite;
+
+            border: none;
+
+            color: white;
+        }
+
+
+        /* ĐĂNG XUẤT */
+
+        .logout-item {
+            color: #ff5555;
+        }
+
+
+        /* LỚP NỀN */
+
+        .menu-overlay {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0,0,0,.65);
+
+            z-index: 2500;
+        }
+
+
+        .menu-overlay.active {
+            display: block;
+        }
+
+
+        /* =========================
            HERO
         ========================= */
 
         .hero {
 
-            min-height: 680px;
+            min-height: 360px;
 
             display: flex;
 
@@ -290,14 +408,16 @@
             padding: 50px 20px;
 
             background:
+                linear-gradient(
+                    rgba(5,8,15,.75),
+                    rgba(5,8,15,.95)
+                ),
 
                 radial-gradient(
                     circle at center,
-                    rgba(35,55,100,.25),
-                    transparent 50%
-                ),
-
-                #070b14;
+                    #263d69,
+                    #080b12
+                );
         }
 
 
@@ -305,9 +425,7 @@
 
             font-size: 48px;
 
-            margin-bottom: 20px;
-
-            font-weight: 800;
+            margin-bottom: 15px;
         }
 
 
@@ -315,13 +433,15 @@
 
             background: linear-gradient(
                 90deg,
-                magenta,
                 red,
                 orange,
                 yellow,
+                lime,
                 cyan,
                 blue,
-                magenta
+                violet,
+                magenta,
+                red
             );
 
             background-size: 400% 100%;
@@ -329,20 +449,21 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
 
-            animation: rgb 4s linear infinite;
+            animation: rgbLogo 4s linear infinite;
 
             filter:
-                drop-shadow(0 0 10px rgba(255,0,255,.4));
+                drop-shadow(0 0 8px rgba(0,255,255,.4))
+                drop-shadow(0 0 15px rgba(255,0,255,.3));
         }
 
 
         .hero p {
 
-            color: #c4c9d4;
+            color: #bfc5d1;
 
-            font-size: 18px;
+            font-size: 17px;
 
-            margin-bottom: 35px;
+            margin-bottom: 25px;
         }
 
 
@@ -357,8 +478,6 @@
             margin: auto;
 
             display: flex;
-
-            gap: 10px;
         }
 
 
@@ -366,15 +485,15 @@
 
             flex: 1;
 
-            padding: 17px;
+            padding: 15px;
 
             border: none;
 
             outline: none;
 
-            border-radius: 10px;
+            border-radius: 8px 0 0 8px;
 
-            font-size: 17px;
+            font-size: 15px;
         }
 
 
@@ -382,27 +501,27 @@
 
             border: none;
 
-            padding: 0 28px;
+            background: linear-gradient(
+                90deg,
+                #ff0000,
+                #00ffff,
+                #ff00ff,
+                #ff0000
+            );
 
-            border-radius: 10px;
+            background-size: 300% 100%;
+
+            animation: rgbLogo 3s linear infinite;
 
             color: white;
 
-            font-size: 16px;
+            padding: 0 25px;
+
+            border-radius: 0 8px 8px 0;
 
             font-weight: bold;
 
             cursor: pointer;
-
-            background: linear-gradient(
-                90deg,
-                #557cff,
-                #ff00dd,
-                #ff0088
-            );
-
-            box-shadow:
-                0 0 15px rgba(255,0,200,.25);
         }
 
 
@@ -414,9 +533,9 @@
 
             max-width: 1200px;
 
-            margin: auto;
+            margin: 40px auto;
 
-            padding: 60px 25px;
+            padding: 0 20px;
         }
 
 
@@ -428,13 +547,13 @@
 
             align-items: center;
 
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
 
         .section-title h2 {
 
-            font-size: 30px;
+            font-size: 25px;
         }
 
 
@@ -442,18 +561,19 @@
 
             background: linear-gradient(
                 90deg,
+                red,
+                cyan,
                 blue,
                 magenta,
                 red
             );
 
-            -webkit-background-clip: text;
+            background-size: 300% 100%;
 
+            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
 
-            font-size: 20px;
-
-            font-weight: bold;
+            animation: rgbLogo 4s linear infinite;
         }
 
 
@@ -469,23 +589,23 @@
 
             flex-wrap: wrap;
 
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
 
         .filters button {
 
-            padding: 13px 20px;
-
-            border-radius: 10px;
-
-            border: 1px solid #293247;
-
-            background: #151d2d;
+            background: #151c2b;
 
             color: white;
 
             font-weight: bold;
+
+            border: 1px solid #293348;
+
+            padding: 10px 16px;
+
+            border-radius: 7px;
 
             cursor: pointer;
         }
@@ -497,12 +617,13 @@
             background: linear-gradient(
                 90deg,
                 red,
-                cyan,
-                blue,
-                magenta
+                #00ffff,
+                #ff00ff
             );
 
-            border-color: transparent;
+            color: white;
+
+            border: none;
         }
 
 
@@ -514,11 +635,11 @@
 
             min-height: 250px;
 
-            background: #111827;
+            background: #131a29;
 
-            border: 1px solid #253047;
+            border: 1px solid #222c40;
 
-            border-radius: 15px;
+            border-radius: 12px;
 
             display: flex;
 
@@ -529,6 +650,8 @@
             justify-content: center;
 
             text-align: center;
+
+            padding: 30px;
         }
 
 
@@ -537,6 +660,10 @@
             font-size: 55px;
 
             margin-bottom: 15px;
+
+            filter:
+                drop-shadow(0 0 10px cyan)
+                drop-shadow(0 0 15px magenta);
         }
 
 
@@ -550,7 +677,7 @@
 
         .empty-shop p {
 
-            color: #8993a5;
+            color: #8f99aa;
         }
 
 
@@ -562,8 +689,7 @@
 
             display: grid;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
 
             gap: 20px;
 
@@ -573,13 +699,13 @@
 
         .stat {
 
-            background: #111827;
+            background: #131a29;
 
-            border: 1px solid #253047;
+            border: 1px solid #222c40;
 
             padding: 25px;
 
-            border-radius: 12px;
+            border-radius: 10px;
 
             text-align: center;
         }
@@ -589,28 +715,28 @@
 
             display: block;
 
-            font-size: 30px;
-
-            margin-bottom: 8px;
-
             background: linear-gradient(
                 90deg,
                 red,
                 orange,
                 yellow,
+                lime,
                 cyan,
                 blue,
-                magenta,
+                violet,
                 red
             );
 
             background-size: 400% 100%;
 
             -webkit-background-clip: text;
-
             -webkit-text-fill-color: transparent;
 
-            animation: rgb 4s linear infinite;
+            animation: rgbLogo 4s linear infinite;
+
+            font-size: 30px;
+
+            margin-bottom: 5px;
         }
 
 
@@ -626,15 +752,15 @@
 
         footer {
 
-            margin-top: 30px;
-
-            padding: 35px 20px;
-
-            text-align: center;
+            margin-top: 60px;
 
             background: #080c14;
 
             border-top: 1px solid #20293a;
+
+            padding: 30px 20px;
+
+            text-align: center;
 
             color: #7f899a;
         }
@@ -651,13 +777,213 @@
                 red
             );
 
+            background-size: 300% 100%;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: rgbLogo 4s linear infinite;
+        }
+
+
+        /* =========================
+           LOGIN / REGISTER MODAL
+        ========================= */
+
+        .modal {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0,0,0,.78);
+
+            align-items: center;
+
+            justify-content: center;
+
+            z-index: 5000;
+
+            padding: 20px;
+        }
+
+
+        .modal-box {
+
+            width: 400px;
+
+            max-width: 100%;
+
+            background: #111827;
+
+            border: 1px solid #303b55;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            position: relative;
+
+            box-shadow:
+                0 0 30px rgba(0,255,255,.12);
+        }
+
+
+        .modal-box h2 {
+
+            margin-bottom: 8px;
+
+            background: linear-gradient(
+                90deg,
+                red,
+                cyan,
+                blue,
+                magenta,
+                red
+            );
+
             background-size: 400% 100%;
 
             -webkit-background-clip: text;
-
             -webkit-text-fill-color: transparent;
 
-            animation: rgb 4s linear infinite;
+            animation: rgbLogo 4s linear infinite;
+        }
+
+
+        .modal-box p {
+
+            color: #9ca5b5;
+
+            margin-bottom: 20px;
+        }
+
+
+        .modal-box input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            margin-bottom: 13px;
+
+            border: 1px solid #293348;
+
+            background: #080c15;
+
+            color: white;
+
+            border-radius: 8px;
+
+            outline: none;
+
+            font-size: 15px;
+        }
+
+
+        .modal-box input:focus {
+
+            border-color: #00ffff;
+
+            box-shadow:
+                0 0 8px rgba(0,255,255,.25);
+        }
+
+
+        .submit-btn {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            background: linear-gradient(
+                90deg,
+                red,
+                orange,
+                yellow,
+                lime,
+                cyan,
+                blue,
+                magenta,
+                red
+            );
+
+            background-size: 400% 100%;
+
+            animation: rgbLogo 3s linear infinite;
+        }
+
+
+        .close-modal {
+
+            position: absolute;
+
+            right: 15px;
+
+            top: 8px;
+
+            border: none;
+
+            background: none;
+
+            color: white;
+
+            font-size: 28px;
+
+            cursor: pointer;
+        }
+
+
+        .form-links {
+
+            margin-top: 18px;
+
+            display: flex;
+
+            justify-content: center;
+        }
+
+
+        .form-links a {
+
+            color: white;
+
+            font-weight: bold;
+
+            font-size: 14px;
+
+            text-decoration: none;
+        }
+
+
+        .form-links a:hover {
+            color: #00ffff;
+        }
+
+
+        .message {
+
+            margin-top: 15px;
+
+            font-weight: bold;
+
+            font-size: 14px;
         }
 
 
@@ -665,98 +991,74 @@
            MOBILE
         ========================= */
 
-        @media (max-width: 600px) {
+        @media (max-width: 900px) {
 
-            header,
-            .navbar {
-                height: 65px;
+            nav {
+                display: none;
             }
 
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
 
             .navbar {
+                height: 60px;
 
-                padding: 0 18px;
+                padding: 0 15px;
             }
 
 
             .logo {
-
-                font-size: 19px;
-            }
-
-
-            .menu {
-
-                top: 65px;
-
-                width: 270px;
-
-                min-height:
-                    calc(100vh - 65px);
-            }
-
-
-            .hero {
-
-                min-height: 680px;
+                font-size: 18px;
             }
 
 
             .hero h1 {
-
-                font-size: 36px;
-            }
-
-
-            .hero p {
-
-                font-size: 17px;
+                font-size: 30px;
             }
 
 
             .search-box {
 
                 flex-direction: column;
+
+                gap: 10px;
             }
 
 
             .search-box input {
 
-                width: 100%;
-
-                padding: 18px;
+                border-radius: 8px;
             }
 
 
             .search-box button {
 
-                width: 100%;
+                border-radius: 8px;
 
-                padding: 17px;
+                padding: 13px;
             }
 
 
-            .section-title h2 {
+            .side-menu {
 
-                font-size: 27px;
-            }
+                width: 290px;
 
-
-            .section-title span {
-
-                font-size: 17px;
-            }
-
-
-            .stats {
-
-                grid-template-columns: 1fr;
+                right: -300px;
             }
 
         }
 
     </style>
-
 </head>
 
 
@@ -776,12 +1078,38 @@
         </div>
 
 
+        <nav>
+
+            <a href="#">
+                Trang chủ
+            </a>
+
+            <a href="#shop">
+                Shop Free Fire
+            </a>
+
+            <a href="#about">
+                Giới thiệu
+            </a>
+
+            <a href="#contact">
+                Liên hệ
+            </a>
+
+            <button
+                class="login-btn"
+                onclick="openLogin()">
+                Đăng nhập
+            </button>
+
+        </nav>
+
+
         <!-- NÚT 3 GẠCH -->
 
         <button
             class="menu-btn"
-            onclick="toggleMenu()"
-            aria-label="Mở menu">
+            onclick="openMenu()">
 
             <span></span>
             <span></span>
@@ -795,61 +1123,121 @@
 
 
 <!-- =========================
-     MENU
+     SIDE MENU
 ========================= -->
 
-<div class="menu" id="menu">
+<div
+    class="menu-overlay"
+    id="menuOverlay"
+    onclick="closeMenu()">
+</div>
 
-    <div class="menu-title">
-        MENU
+
+<div
+    class="side-menu"
+    id="sideMenu">
+
+
+    <div class="menu-header">
+
+        <div class="menu-title">
+            SOVANI MENU
+        </div>
+
+        <button
+            class="close-menu"
+            onclick="closeMenu()">
+            ×
+        </button>
+
     </div>
 
 
-    <a href="#">
-        🏠 Trang chủ
-    </a>
+    <button
+        class="menu-item menu-login"
+        onclick="closeMenu(); openLogin();">
+
+        🔐 Đăng nhập
+
+    </button>
 
 
-    <a href="#shop">
-        🎮 Shop Free Fire
-    </a>
+    <button
+        class="menu-item"
+        onclick="closeMenu(); openRegister();">
 
+        📝 Đăng ký
 
-    <a href="#about">
-        ℹ️ Giới thiệu
-    </a>
+    </button>
 
-
-    <a href="#contact">
-        📞 Liên hệ
-    </a>
-
-
-    <a href="#">
-        🛒 Đơn hàng
-    </a>
-
-
-    <a href="#">
-        ❤️ Yêu thích
-    </a>
-
-
-    <a href="#">
-        ⚙️ Cài đặt
-    </a>
-
-
-    <!-- ĐĂNG NHẬP RGB -->
 
     <a
         href="#"
-        class="login-rgb"
-        onclick="login()">
+        class="menu-item"
+        onclick="closeMenu();">
 
-        🔐 ĐĂNG NHẬP
+        👤 Tài khoản
 
     </a>
+
+
+    <a
+        href="#shop"
+        class="menu-item"
+        onclick="closeMenu();">
+
+        🛒 Đơn hàng
+
+    </a>
+
+
+    <a
+        href="#"
+        class="menu-item"
+        onclick="closeMenu();">
+
+        💰 Nạp tiền
+
+    </a>
+
+
+    <a
+        href="#"
+        class="menu-item"
+        onclick="closeMenu();">
+
+        ❤️ Yêu thích
+
+    </a>
+
+
+    <a
+        href="#contact"
+        class="menu-item"
+        onclick="closeMenu();">
+
+        🎧 Hỗ trợ
+
+    </a>
+
+
+    <a
+        href="#about"
+        class="menu-item"
+        onclick="closeMenu();">
+
+        ℹ️ Giới thiệu
+
+    </a>
+
+
+    <button
+        class="menu-item logout-item"
+        onclick="logout();">
+
+        🚪 Đăng xuất
+
+    </button>
 
 </div>
 
@@ -858,274 +1246,4 @@
      HERO
 ========================= -->
 
-<section class="hero">
-
-    <div>
-
-        <h1>
-            <span>SOVANI SHOP</span>
-        </h1>
-
-
-        <p>
-            Mua bán tài khoản Free Fire
-            uy tín và tiện lợi
-        </p>
-
-
-        <div class="search-box">
-
-            <input
-                type="text"
-                placeholder="Tìm kiếm sản phẩm..."
-            >
-
-
-            <button onclick="searchProduct()">
-                Tìm kiếm
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     SHOP
-========================= -->
-
-<main
-    class="container"
-    id="shop">
-
-
-    <div class="section-title">
-
-        <h2>
-            🔥 Free Fire
-        </h2>
-
-
-        <span>
-            0 sản phẩm
-        </span>
-
-    </div>
-
-
-    <div class="filters">
-
-        <button class="active">
-            Tất cả
-        </button>
-
-
-        <button>
-            Dưới 100K
-        </button>
-
-
-        <button>
-            100K - 500K
-        </button>
-
-
-        <button>
-            VIP
-        </button>
-
-    </div>
-
-
-    <div class="empty-shop">
-
-        <div class="empty-icon">
-            🛒
-        </div>
-
-
-        <h3>
-            Chưa có sản phẩm
-        </h3>
-
-
-        <p>
-            SOVANI SHOP hiện chưa đăng bán sản phẩm nào.
-        </p>
-
-    </div>
-
-
-    <!-- =========================
-         THỐNG KÊ
-    ========================= -->
-
-    <div
-        class="stats"
-        id="about">
-
-
-        <div class="stat">
-
-            <strong>
-                0+
-            </strong>
-
-            <p>
-                Tài khoản đã bán
-            </p>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong>
-                0+
-            </strong>
-
-            <p>
-                Khách hàng
-            </p>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong>
-                24/7
-            </strong>
-
-            <p>
-                Hỗ trợ khách hàng
-            </p>
-
-        </div>
-
-    </div>
-
-</main>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer id="contact">
-
-    <p>
-
-        © 2026
-
-        <strong>
-            SOVANI SHOP
-        </strong>
-
-    </p>
-
-
-    <p style="margin-top:8px;">
-
-        Website mua bán Free Fire.
-
-    </p>
-
-</footer>
-
-
-<script>
-
-    /* =========================
-       MỞ / ĐÓNG MENU
-    ========================= */
-
-    function toggleMenu() {
-
-        const menu =
-            document.getElementById("menu");
-
-        menu.classList.toggle("active");
-
-    }
-
-
-    /* =========================
-       ĐĂNG NHẬP
-    ========================= */
-
-    function login() {
-
-        alert(
-            "Chức năng đăng nhập đang được phát triển."
-        );
-
-    }
-
-
-    /* =========================
-       TÌM KIẾM
-    ========================= */
-
-    function searchProduct() {
-
-        const input =
-            document.querySelector(
-                ".search-box input"
-            );
-
-        const keyword =
-            input.value.trim();
-
-        if (keyword === "") {
-
-            alert(
-                "Vui lòng nhập sản phẩm cần tìm."
-            );
-
-            return;
-        }
-
-
-        alert(
-            "Đang tìm kiếm: " + keyword
-        );
-
-    }
-
-
-    /* =========================
-       CLICK NGOÀI MENU
-    ========================= */
-
-    document.addEventListener(
-        "click",
-        function(event) {
-
-            const menu =
-                document.getElementById("menu");
-
-            const button =
-                document.querySelector(".menu-btn");
-
-
-            if (
-                menu.classList.contains("active") &&
-                !menu.contains(event.target) &&
-                !button.contains(event.target)
-            ) {
-
-                menu.classList.remove("active");
-
-            }
-
-        }
-    );
-
-</script>
-
-
-</body>
-</html>
+<section clas
