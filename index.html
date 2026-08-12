@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOVANI SHOP - Mua Bán Shop Free Fire</title>
+    <title>SOVANI SHOP - Mua bán hack Free Fire</title>
 
     <style>
         * {
@@ -36,14 +36,43 @@
             padding: 0 20px;
         }
 
+        /* LOGO RGB */
+
         .logo {
             font-size: 25px;
             font-weight: bold;
-            color: #ffb000;
+
+            background: linear-gradient(
+                90deg,
+                #ff0000,
+                #ff7a00,
+                #ffff00,
+                #00ff00,
+                #00ffff,
+                #008cff,
+                #8a2be2,
+                #ff00ff,
+                #ff0000
+            );
+
+            background-size: 400% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: rgbLogo 5s linear infinite;
+
+            text-shadow:
+                0 0 10px rgba(255,255,255,.25);
         }
 
-        .logo span {
-            color: #fff;
+        @keyframes rgbLogo {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 400% 50%;
+            }
         }
 
         nav a {
@@ -54,12 +83,21 @@
         }
 
         nav a:hover {
-            color: #ffb000;
+            color: #00ffff;
         }
 
         .login-btn {
-            background: #ffb000;
-            color: #111 !important;
+            background: linear-gradient(
+                90deg,
+                #ff0000,
+                #00ffff,
+                #ff00ff
+            );
+
+            background-size: 300% 100%;
+            animation: rgbLogo 3s linear infinite;
+
+            color: white !important;
             padding: 10px 16px;
             border-radius: 8px;
             font-weight: bold;
@@ -92,8 +130,31 @@
             margin-bottom: 15px;
         }
 
+        /* RGB CHO SOVANI SHOP TRONG HERO */
+
         .hero h1 span {
-            color: #ffb000;
+            background: linear-gradient(
+                90deg,
+                red,
+                orange,
+                yellow,
+                lime,
+                cyan,
+                blue,
+                violet,
+                magenta,
+                red
+            );
+
+            background-size: 400% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: rgbLogo 4s linear infinite;
+
+            filter:
+                drop-shadow(0 0 8px rgba(0,255,255,.4))
+                drop-shadow(0 0 15px rgba(255,0,255,.3));
         }
 
         .hero p {
@@ -119,7 +180,19 @@
 
         .search-box button {
             border: none;
-            background: #ffb000;
+
+            background: linear-gradient(
+                90deg,
+                #ff0000,
+                #00ffff,
+                #ff00ff,
+                #ff0000
+            );
+
+            background-size: 300% 100%;
+            animation: rgbLogo 3s linear infinite;
+
+            color: white;
             padding: 0 25px;
             border-radius: 0 8px 8px 0;
             font-weight: bold;
@@ -146,7 +219,19 @@
         }
 
         .section-title span {
-            color: #ffb000;
+            background: linear-gradient(
+                90deg,
+                red,
+                cyan,
+                blue,
+                magenta,
+                red
+            );
+
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rgbLogo 4s linear infinite;
         }
 
         /* FILTER */
@@ -167,9 +252,17 @@
             cursor: pointer;
         }
 
-        .filters button:hover {
-            background: #ffb000;
-            color: #111;
+        .filters button:hover,
+        .filters button.active {
+            background: linear-gradient(
+                90deg,
+                #ff0000,
+                #00ffff,
+                #ff00ff
+            );
+
+            color: white;
+            border: none;
         }
 
         /* EMPTY SHOP */
@@ -192,6 +285,10 @@
         .empty-icon {
             font-size: 55px;
             margin-bottom: 15px;
+
+            filter:
+                drop-shadow(0 0 10px cyan)
+                drop-shadow(0 0 15px magenta);
         }
 
         .empty-shop h3 {
@@ -222,7 +319,25 @@
 
         .stat strong {
             display: block;
-            color: #ffb000;
+
+            background: linear-gradient(
+                90deg,
+                red,
+                orange,
+                yellow,
+                lime,
+                cyan,
+                blue,
+                violet,
+                red
+            );
+
+            background-size: 400% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: rgbLogo 4s linear infinite;
+
             font-size: 30px;
             margin-bottom: 5px;
         }
@@ -243,7 +358,20 @@
         }
 
         footer strong {
-            color: #ffb000;
+            background: linear-gradient(
+                90deg,
+                red,
+                cyan,
+                blue,
+                magenta,
+                red
+            );
+
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: rgbLogo 4s linear infinite;
         }
 
         /* MOBILE */
@@ -293,7 +421,7 @@
     <div class="navbar">
 
         <div class="logo">
-            SOVANI <span>SHOP</span>
+            SOVANI SHOP
         </div>
 
         <nav>
@@ -308,8 +436,6 @@
 
 </header>
 
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -341,8 +467,6 @@
 
 </section>
 
-
-<!-- SHOP -->
 
 <main class="container" id="shop">
 
@@ -378,8 +502,6 @@
     </div>
 
 
-    <!-- KHÔNG CÓ SẢN PHẨM -->
-
     <div class="empty-shop">
 
         <div class="empty-icon">
@@ -396,8 +518,6 @@
 
     </div>
 
-
-    <!-- THỐNG KÊ -->
 
     <div class="stats" id="about">
 
@@ -438,8 +558,6 @@
 </main>
 
 
-<!-- FOOTER -->
-
 <footer id="contact">
 
     <p>
@@ -447,10 +565,10 @@
     </p>
 
     <p style="margin-top:8px;">
-        Website mua bán Free Fire.
+        Website mua bán hack Free Fire.
     </p>
 
 </footer>
 
 </body>
-</html>
+    </html>
