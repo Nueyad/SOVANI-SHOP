@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOVANI SHOP</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#070b14;color:#fff;min-height:100vh}
+@keyframes rgb{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+.rgb{background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,violet,magenta,red);background-size:500% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:rgb 5s linear infinite}
+header{height:68px;background:#111827;border-bottom:1px solid #29344b;position:sticky;top:0;z-index:1000}
+.navbar{height:100%;display:flex;align-items:center;justify-content:space-between;padding:0 15px}
+.logo{font-size:21px;font-weight:bold;white-space:nowrap;cursor:pointer}
+.menu-btn{width:55px;height:50px;border:1px solid #33415c;border-radius:14px;background:#151d2d;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;cursor:pointer}
+.menu-btn span{width:32px;height:4px;background:#fff;border-radius:10px}
+.menu{position:absolute;top:76px;right:15px;width:270px;background:#111827;border:1px solid #29344b;border-radius:15px;padding:12px;display:none;box-shadow:0 15px 40px rgba(0,0,0,.6)}
+.menu.show{display:block}
+.menu a,.menu button{width:100%;display:block;padding:14px;margin-bottom:8px;border:0;border-radius:10px;background:#182236;color:#fff;text-decoration:none;text-align:left;font-size:15px;font-weight:bold;cursor:pointer}
+.menu button:last-child,.menu a:last-child{margin-bottom:0}
+.rgb-btn{background:linear-gradient(90deg,red,orange,lime,cyan,blue,magenta,red)!important;background-size:500% 100%!important;animation:rgb 4s linear infinite;text-align:center!important}
+.wallet-btn{background:#182236!important;border:1px solid #34445f!important}
+.hero{min-height:530px;display:flex;align-items:center;justify-content:center;text-align:center;padding:50px 18px;background:radial-gradient(circle at center,#16274a 0%,#080c16 55%,#070b14 100%)}
+.hero h1{font-size:32px;margin-bottom:18px}.hero p{color:#b9c1d0;font-size:17px;line-height:1.6;margin-bottom:30px}
+.search{width:100%;max-width:650px}.search input{width:100%;height:56px;border:0;outline:0;border-radius:11px;padding:0 17px;font-size:16px;margin-bottom:10px}.search button{width:100%;height:56px;border:0;border-radius:11px;color:#fff;font-size:16px;font-weight:bold;cursor:pointer;background:linear-gradient(90deg,#457cff,#c62cff,#ff00a8)}
+.container{width:100%;padding:45px 15px;max-width:1100px;margin:auto}
+.section-title{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:22px}.section-title h2{font-size:24px}.count{font-size:15px;white-space:nowrap}
+.filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:25px}.filter{padding:10px 14px;border-radius:9px;border:1px solid #2b3851;background:#151e2f;color:#fff;font-weight:bold;font-size:13px;cursor:pointer}.filter.active{background:#008cff;border-color:#008cff}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}.product{background:#111827;border:1px solid #26334b;border-radius:15px;overflow:hidden}.product img{width:100%;height:170px;object-fit:cover;background:#151e2f}.product-body{padding:16px}.product h3{font-size:18px;margin-bottom:8px}.price{font-size:20px;font-weight:bold;margin-bottom:12px}.buy{width:100%;height:44px;border:0;border-radius:9px;background:linear-gradient(90deg,#457cff,#c62cff);color:#fff;font-weight:bold;cursor:pointer}.empty{min-height:220px;border:1px solid #26334b;background:#111827;border-radius:15px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:25px}.empty .icon{font-size:58px;margin-bottom:15px}.empty h3{font-size:22px;margin-bottom:10px}.empty p{color:#8e99ad;line-height:1.5;font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:35px}.stat{padding:25px;background:#111827;border:1px solid #26334b;border-radius:15px;text-align:center}.stat strong{display:block;font-size:32px;margin-bottom:7px}.stat p{color:#9ba6b8;font-size:14px}
+footer{border-top:1px solid #202b40;background:#080c14;padding:30px 15px;text-align:center;color:#7e899c;font-size:14px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:18px;z-index:2000}.modal.show{display:flex}.box{width:100%;max-width:420px;max-height:90vh;overflow:auto;background:#111827;border:1px solid #303d57;border-radius:17px;padding:25px 20px;position:relative;box-shadow:0 20px 70px rgba(0,0,0,.7)}.box h2{text-align:center;margin-bottom:20px;font-size:23px}.close{position:absolute;right:12px;top:10px;width:34px;height:34px;border:0;background:#1c2639;color:#fff;border-radius:50%;font-size:21px;cursor:pointer}.input{width:100%;height:50px;margin-bottom:11px;padding:0 14px;border:0;outline:0;border-radius:9px;font-size:15px}.submit{width:100%;height:50px;border:0;border-radius:9px;color:#fff;font-weight:bold;cursor:pointer;background:linear-gradient(90deg,red,cyan,magenta,red);background-size:400% 100%;animation:rgb 3s linear infinite}.link{text-align:center;margin-top:15px;color:#00d9ff;cursor:pointer;font-weight:bold;font-size:14px}.message{text-align:center;min-height:20px;margin-top:12px;font-size:14px;line-height:1.4}
+.balance{font-size:28px;font-weight:bold;text-align:center;margin:10px 0 20px}.balance small{display:block;color:#9ba6b8;font-size:13px;font-weight:normal;margin-bottom:5px}.tabs{display:flex;gap:8px;margin-bottom:15px}.tab{flex:1;padding:10px;border:1px solid #33415c;background:#182236;color:#fff;border-radius:9px;cursor:pointer}.tab.active{background:#008cff}.notice{background:#182236;border:1px solid #33415c;padding:12px;border-radius:10px;font-size:13px;line-height:1.5;margin-bottom:15px}
+.qr-wrap{background:#fff;border-radius:14px;padding:12px;margin:15px auto;max-width:290px;text-align:center;display:none}
+.qr-wrap img{width:100%;max-width:260px;display:block;margin:auto;border-radius:8px}
+.bank-info{text-align:center;background:#182236;border:1px solid #33415c;border-radius:10px;padding:12px;font-size:13px;line-height:1.7;margin-bottom:12px}
+.copy-btn{width:100%;height:42px;border:1px solid #33415c;border-radius:9px;background:#182236;color:#fff;font-weight:bold;cursor:pointer;margin-top:8px}
+.history{font-size:13px;color:#c4ccda}.row{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid #26334b}.green{color:#00ff88}.red{color:#ff6b6b}.muted{color:#8e99ad}
+.purchased-section{margin-top:35px}.purchased-list{display:grid;gap:12px}.purchased-card{background:#111827;border:1px solid #26334b;border-radius:15px;padding:16px}.purchased-card h3{font-size:17px;margin-bottom:7px}.purchased-meta{color:#8e99ad;font-size:13px;line-height:1.6;margin-bottom:12px}.receive-btn{width:100%;height:44px;border:0;border-radius:9px;background:linear-gradient(90deg,#00c6ff,#7b61ff);color:#fff;font-weight:bold;cursor:pointer}.delivery-box{margin-top:12px;background:#182236;border:1px solid #33415c;border-radius:10px;padding:13px;line-height:1.6;display:none;word-break:break-word}.delivery-box.show{display:block}.delivery-box a{color:#00d9ff;font-weight:bold}
+
+@media(max-width:600px){.stats{grid-template-columns:1fr}.products{grid-template-columns:1fr 1fr}.product img{height:130px}.section-title h2{font-size:21px}}
+@media(max-width:380px){.products{grid-template-columns:1fr}.logo{font-size:19px}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="navbar">
+<div class="logo rgb" id="logo">SOVANI SHOP</div>
+<button class="menu-btn" id="menuBtn" aria-label="Mở menu"><span></span><span></span><span></span></button>
+</div>
+<div class="menu" id="menu">
+<a href="#shop">🛒 Shop</a>
+<a href="#purchased" id="purchasedLink" style="display:none">📦 Sản phẩm đã mua</a>
+<button class="wallet-btn" id="walletBtn" style="display:none">💰 Ví tiền</button>
+<button class="rgb-btn" id="loginBtn">🔐 Đăng nhập</button>
+<button id="logoutBtn" style="display:none">🚪 Đăng xuất</button>
+</div>
+</header>
+
+<section class="hero" id="home">
+<div>
+<h1 class="rgb">SOVANI SHOP</h1>
+<p>Mua bán sản phẩm nhanh chóng<br>với số dư trong tài khoản.</p>
+</div>
+</section>
+
+<main class="container" id="shop">
+<div class="section-title"><h2>SẢN PHẨM</h2><span class="count rgb" id="productCount">0 sản phẩm</span></div>
+<div class="filters"><button class="filter active" data-filter="all">Tất cả</button><button class="filter" data-filter="100">Dưới 100K</button><button class="filter" data-filter="500">100K - 500K</button><button class="filter" data-filter="vip">VIP</button></div>
+<div id="products" class="products"></div>
+<div id="empty" class="empty"><div class="icon">🛒</div><h3>Chưa có sản phẩm</h3><p>SOVANI SHOP hiện chưa đăng bán sản phẩm nào.</p></div>
+<div class="stats" id="about"><div class="stat"><strong class="rgb" id="soldCount">0+</strong><p>Sản phẩm đã bán</p></div><div class="stat"><strong class="rgb" id="customerCount">0+</strong><p>Khách hàng</p></div><div class="stat"><strong class="rgb">24/7</strong><p>Hỗ trợ khách hàng</p></div></div>
+</main>
+
+<section class="container purchased-section" id="purchased">
+<div class="section-title"><h2>📦 SẢN PHẨM ĐÃ MUA</h2><span class="count rgb" id="purchasedCount">0 sản phẩm</span></div>
+<div id="purchasedList" class="purchased-list">
+<div class="empty" id="purchasedEmpty"><div class="icon">📦</div><h3>Chưa có sản phẩm đã mua</h3><p>Sau khi thanh toán thành công, sản phẩm của bạn sẽ xuất hiện ở đây.</p></div>
+</div>
+<div class="message" id="purchasedMsg"></div>
+</section>
+
+<footer id="contact"><p>© 2026 <strong class="rgb">SOVANI SHOP</strong></p><p style="margin-top:8px">Website mua bán Free Fire.</p></footer>
+
+<div class="modal" id="loginModal"><div class="box"><button class="close" id="closeLogin">×</button><h2>🔐 Đăng nhập</h2><input class="input" id="loginUser" type="email" placeholder="Email"><input class="input" id="loginPass" type="password" placeholder="Mật khẩu"><button class="submit" id="doLogin">Đăng nhập</button><div class="link" id="forgot">Quên mật khẩu?</div><div class="link" id="toRegister">Chưa có tài khoản? Đăng ký</div><div class="message" id="loginMsg"></div></div></div>
+
+<div class="modal" id="registerModal"><div class="box"><button class="close" id="closeRegister">×</button><h2>📝 Đăng ký</h2><input class="input" id="regName" type="text" placeholder="Tên đăng nhập"><input class="input" id="regEmail" type="email" placeholder="Email"><input class="input" id="regPass" type="password" placeholder="Mật khẩu"><input class="input" id="regPass2" type="password" placeholder="Nhập lại mật khẩu"><button class="submit" id="doRegister">Tạo tài khoản</button><div class="link" id="toLogin">Đã có tài khoản? Đăng nhập</div><div class="message" id="regMsg"></div></div></div>
+
+<div class="modal" id="walletModal"><div class="box"><button class="close" id="closeWallet">×</button><h2>💰 Ví tiền</h2><div class="balance"><small>Số dư hiện tại</small><span id="balance">0 ₫</span></div><div class="tabs"><button class="tab active" id="depositTab">Nạp tiền</button><button class="tab" id="historyTab">Lịch sử</button></div><div id="depositPanel">
+<div class="notice">Nhập số tiền muốn nạp. Hệ thống sẽ tạo QR riêng cho giao dịch này. QR vẫn chuyển tiền trực tiếp vào tài khoản MB Bank chính của shop.</div>
+<input class="input" id="depositAmount" type="number" min="1000" step="1000" placeholder="Số tiền (VNĐ)">
+<button class="submit" id="createDeposit">Tạo QR nạp tiền</button>
+<div class="qr-wrap" id="qrWrap">
+<img id="depositQR" alt="QR thanh toán Sovani Shop">
+<div style="color:#111;font-weight:bold;margin-top:8px" id="qrAmount"></div>
+</div>
+<div class="bank-info" id="bankInfo" style="display:none">
+<b>MB BANK</b><br>
+STK: <b>0798453199</b><br>
+Chủ tài khoản: <b>NGUYEN VAN CONG THANH</b><br>
+Nội dung: <b id="transferCodeText"></b>
+<button class="copy-btn" id="copyTransfer">📋 Sao chép nội dung chuyển khoản</button>
+</div>
+<div class="message" id="depositMsg"></div>
+</div><div id="historyPanel" style="display:none"><div class="history" id="history"></div></div></div></div>
+
+<div class="modal" id="purchaseModal"><div class="box"><button class="close" id="closePurchase">×</button><h2>🛒 Xác nhận mua</h2><div class="notice" id="purchaseInfo"></div><button class="submit" id="confirmPurchase">Thanh toán bằng số dư</button><div class="message" id="purchaseMsg"></div></div></div>
+
+<script>
+(function(){
+const SUPABASE_URL="https://soxkmmliygtexfevfgun.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_LmZ7eEQdU4QBxR4bCNE6OA_46sWeGk6";
+const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+
+const $=id=>document.getElementById(id);
+let products=[],selectedProduct=null,currentFilter="all";
+
+function money(n){return new Intl.NumberFormat("vi-VN").format(Number(n)||0)+" ₫"}
+function msg(el,text,color){el.textContent=text;el.style.color=color}
+
+function openModal(id){$(id).classList.add("show")}
+function closeModal(id){$(id).classList.remove("show")}
+
+$("menuBtn").onclick=e=>{e.stopPropagation();$("menu").classList.toggle("show")}
+document.addEventListener("click",e=>{if(!$("menu").contains(e.target)&&!$("menuBtn").contains(e.target))$("menu").classList.remove("show")})
+$("logo").onclick=()=>window.scrollTo({top:0,behavior:"smooth"})
+
+$("loginBtn").onclick=()=>{openModal("loginModal");$("menu").classList.remove("show")}
+$("closeLogin").onclick=()=>closeModal("loginModal")
+$("closeRegister").onclick=()=>closeModal("registerModal")
+$("toRegister").onclick=()=>{closeModal("loginModal");openModal("registerModal")}
+$("toLogin").onclick=()=>{closeModal("registerModal");openModal("loginModal")}
+$("walletBtn").onclick=async()=>{closeModal("loginModal");$("menu").classList.remove("show");$("qrWrap").style.display="none";$("bankInfo").style.display="none";$("depositMsg").textContent="";openModal("walletModal");await loadWallet()}
+$("closeWallet").onclick=()=>closeModal("walletModal")
+$("closePurchase").onclick=()=>closeModal("purchaseModal")
+
+document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)m.classList.remove("show")}))
+document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll(".modal").forEach(m=>m.classList.remove("show"))})
+
+async function updateAuthUI(){
+ const {data}=await supabaseClient.auth.getSession(),session=data.session;
+ if(session){
+   $("loginBtn").textContent="👤 "+(session.user.user_metadata?.username||session.user.email);
+   $("loginBtn").classList.remove("rgb-btn");$("walletBtn").style.display="block";$("logoutBtn").style.display="block";$("purchasedLink").style.display="block";
+ }else{
+   $("loginBtn").textContent="🔐 Đăng nhập";$("loginBtn").classList.add("rgb-btn");$("walletBtn").style.display="none";$("logoutBtn").style.display="none";$("purchasedLink").style.display="none";
+ }
+}
+$("logoutBtn").onclick=async()=>{await supabaseClient.auth.signOut();updateAuthUI();$("menu").classList.remove("show");alert("Đã đăng xuất.")}
+
+$("doLogin").onclick=async()=>{
+ const email=$("loginUser").value.trim(),pass=$("loginPass").value,msgEl=$("loginMsg"),btn=$("doLogin");
+ if(!email||!pass){msg(msgEl,"Vui lòng nhập đầy đủ thông tin.","red");return}
+ btn.disabled=true;msg(msgEl,"Đang đăng nhập...","#00d9ff");
+ const {error}=await supabaseClient.auth.signInWithPassword({email,password:pass});
+ btn.disabled=false;
+ if(error){msg(msgEl,error.message,"red");return}
+ msg(msgEl,"Đăng nhập thành công!","#00ff88");updateAuthUI();setTimeout(()=>closeModal("loginModal"),500)
+}
+$("forgot").onclick=async()=>{
+ const email=$("loginUser").value.trim(),el=$("loginMsg");
+ if(!email||!email.includes("@")){msg(el,"Hãy nhập email trước rồi bấm Quên mật khẩu.","red");return}
+ const {error}=await supabaseClient.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin+window.location.pathname});
+ msg(el,error?error.message:"Đã gửi email khôi phục. Hãy kiểm tra hộp thư.",error?"red":"#00ff88")
+}
+$("doRegister").onclick=async()=>{
+ const name=$("regName").value.trim(),email=$("regEmail").value.trim(),pass=$("regPass").value,pass2=$("regPass2").value,el=$("regMsg"),btn=$("doRegister");
+ if(!name||!email||!pass||!pass2){msg(el,"Vui lòng nhập đầy đủ thông tin.","red");return}
+ if(pass.length<6){msg(el,"Mật khẩu phải có ít nhất 6 ký tự.","red");return}
+ if(pass!==pass2){msg(el,"Mật khẩu nhập lại không khớp.","red");return}
+ btn.disabled=true;msg(el,"Đang tạo tài khoản...","#00d9ff");
+ const {data,error}=await supabaseClient.auth.signUp({email,password:pass,options:{data:{username:name}}});
+ btn.disabled=false;
+ if(error){msg(el,error.message,"red");return}
+ msg(el,data.session?"Tạo tài khoản thành công!":"Đăng ký thành công! Hãy kiểm tra email để xác nhận.","#00ff88");
+ if(data.session){updateAuthUI();setTimeout(()=>closeModal("registerModal"),700)}
+}
+
+async function loadProducts(){
+ const {data,error}=await supabaseClient.from("products").select("*").eq("active",true).order("created_at",{ascending:false});
+ if(error){console.warn(error);return}
+ products=data||[];renderProducts()
+}
+function renderProducts(){
+ const list=products.filter(p=>{
+   if(currentFilter==="100")return Number(p.price)<100000;
+   if(currentFilter==="500")return Number(p.price)>=100000&&Number(p.price)<=500000;
+   if(currentFilter==="vip")return Number(p.price)>500000;
+   return true
+ });
+ $("productCount").textContent=list.length+" sản phẩm";
+ $("products").innerHTML="";
+ $("empty").style.display=list.length?"none":"flex";
+ list.forEach(p=>{
+   const card=document.createElement("div");card.className="product";
+   card.innerHTML=`${p.image_url?`<img src="${p.image_url}" alt="">`:""}<div class="product-body"><h3>${escapeHtml(p.name)}</h3><div class="price rgb">${money(p.price)}</div><button class="buy">🛒 Mua ngay</button></div>`;
+   card.querySelector(".buy").onclick=()=>buyProduct(p);$("products").appendChild(card)
+ })
+}
+function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+document.querySelectorAll(".filter").forEach(b=>b.onclick=()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentFilter=b.dataset.filter;renderProducts()})
+
+async function loadWallet(){
+ const {data:sessionData}=await supabaseClient.auth.getSession();if(!sessionData.session){closeModal("walletModal");openModal("loginModal");return}
+ const {data,error}=await supabaseClient.from("profiles").select("balance").eq("id",sessionData.session.user.id).single();
+ if(error){
+   $("balance").textContent="0 ₫";
+   msg($("depositMsg"),"Ví chưa được tạo. Bạn có thể bấm “Tạo QR nạp tiền” để hệ thống tự tạo ví.","#ffcc00");
+   return;
+ }
+ $("balance").textContent=money(data.balance);loadHistory()
+}
+$("depositTab").onclick=()=>{$("depositTab").classList.add("active");$("historyTab").classList.remove("active");$("depositPanel").style.display="block";$("historyPanel").style.display="none"}
+$("historyTab").onclick=()=>{$("historyTab").classList.add("active");$("depositTab").classList.remove("active");$("depositPanel").style.display="none";$("historyPanel").style.display="block";loadHistory()}
+$("createDeposit").onclick=async()=>{
+ const amount=Number($("depositAmount").value),el=$("depositMsg"),btn=$("createDeposit");
+ if(!amount||amount<1000){msg(el,"Số tiền tối thiểu là 1.000 ₫.","red");return}
+ const {data:sessionData}=await supabaseClient.auth.getSession();if(!sessionData.session){msg(el,"Bạn cần đăng nhập.","red");return}
+ btn.disabled=true;msg(el,"Đang tạo tài khoản ví và QR...","#00d9ff");
+ const user=sessionData.session.user;
+ const username=user.user_metadata?.username || user.email?.split("@")[0] || "Khách hàng";
+
+ // Đảm bảo tài khoản hiện tại có hồ sơ trong profiles trước khi tạo yêu cầu nạp.
+ // Trường hợp tài khoản được đăng ký trước khi trigger profiles được tạo, bước này sẽ tự bổ sung hồ sơ.
+ const {error:profileError}=await supabaseClient
+   .from("profiles")
+   .upsert({id:user.id,username:username},{onConflict:"id",ignoreDuplicates:true});
+
+ if(profileError){
+   btn.disabled=false;
+   msg(el,"Không tạo được ví: "+profileError.message+" Hãy chạy file fix_deposit.sql trong Supabase.","red");
+   return;
+ }
+
+ const code="SOVANI"+Date.now().toString().slice(-10);
+ const {error}=await supabaseClient.from("deposits").insert({user_id:user.id,amount,transfer_code:code});
+ btn.disabled=false;
+ if(error){msg(el,"Không tạo được yêu cầu: "+error.message,"red");return}
+
+ const qrUrl="https://img.vietqr.io/image/MB-0798453199-compact2.png?amount="+encodeURIComponent(Math.round(amount))+"&addInfo="+encodeURIComponent(code)+"&accountName="+encodeURIComponent("NGUYEN VAN CONG THANH");
+ $("depositQR").src=qrUrl;
+ $("qrAmount").textContent="Số tiền: "+money(amount);
+ $("transferCodeText").textContent=code;
+ $("qrWrap").style.display="block";
+ $("bankInfo").style.display="block";
+ msg(el,"Đã tạo QR. Hãy quét QR và chuyển đúng số tiền. Sau khi shop xác nhận, số dư sẽ được cộng vào tài khoản.","#00ff88");
+ $("depositAmount").value="";
+ loadHistory()
+}
+$("copyTransfer").onclick=async()=>{
+ const code=$("transferCodeText").textContent;
+ try{await navigator.clipboard.writeText(code);msg($("depositMsg"),"Đã sao chép nội dung chuyển khoản.","#00ff88")}
+ catch(e){msg($("depositMsg"),"Không thể tự sao chép. Nội dung: "+code,"#00ff88")}
+}
+async function loadHistory(){
+ const {data:sessionData}=await supabaseClient.auth.getSession();if(!sessionData.session)return;
+ const {data,error}=await supabaseClient.from("deposits").select("amount,status,transfer_code,created_at").eq("user_id",sessionData.session.user.id).order("created_at",{ascending:false}).limit(20);
+ if(error){$("history").textContent="Không tải được lịch sử.";return}
+ $("history").innerHTML=(data||[]).length?(data.map(x=>`<div class="row"><span>${money(x.amount)}<br><span class="muted">${escapeHtml(x.transfer_code)}</span></span><span class="${x.status==="completed"?"green":x.status==="rejected"?"red":"muted"}">${x.status==="completed"?"Đã cộng":x.status==="rejected"?"Từ chối":"Chờ duyệt"}</span></div>`).join("")):"Chưa có giao dịch."
+}
+async function loadStats(){
+ const {count:soldCount,error:soldErr}=await supabaseClient
+   .from("orders")
+   .select("*",{count:"exact",head:true});
+ if(!soldErr) $("soldCount").textContent=(soldCount||0)+"+";
+
+ const {data:custData,error:custErr}=await supabaseClient
+   .from("orders")
+   .select("user_id");
+ if(!custErr){
+   const uniqueCustomers=new Set((custData||[]).map(o=>o.user_id)).size;
+   $("customerCount").textContent=uniqueCustomers+"+";
+ }
+}
+
+async function loadPurchasedProducts(){
+ const {data:sessionData}=await supabaseClient.auth.getSession();
+ if(!sessionData.session){
+   $("purchasedCount").textContent="0 sản phẩm";
+   $("purchasedList").innerHTML='<div class="empty"><div class="icon">🔐</div><h3>Đăng nhập để xem</h3><p>Hãy đăng nhập để xem các sản phẩm bạn đã mua.</p></div>';
+   return;
+ }
+
+ const {data,error}=await supabaseClient
+   .from("orders")
+   .select("id,product_id,price,created_at,products(name,image_url)")
+   .eq("user_id",sessionData.session.user.id)
+   .order("created_at",{ascending:false});
+
+ if(error){
+   console.warn("Không tải được sản phẩm đã mua:",error);
+   $("purchasedCount").textContent="0 sản phẩm";
+   $("purchasedList").innerHTML='<div class="empty"><div class="icon">⚠️</div><h3>Không tải được</h3><p>Hãy chạy phần SQL giao hàng rồi tải lại trang.</p></div>';
+   return;
+ }
+
+ const orders=data||[];
+ $("purchasedCount").textContent=orders.length+" sản phẩm";
+ if(!orders.length){
+   $("purchasedList").innerHTML='<div class="empty"><div class="icon">📦</div><h3>Chưa có sản phẩm đã mua</h3><p>Sau khi thanh toán thành công, sản phẩm của bạn sẽ xuất hiện ở đây.</p></div>';
+   return;
+ }
+
+ $("purchasedList").innerHTML=orders.map(o=>{
+   const p=o.products||{};
+   return `<div class="purchased-card">
+     ${p.image_url?`<img src="${escapeHtml(p.image_url)}" alt="${escapeHtml(p.name||"Sản phẩm")}" style="width:100%;height:150px;object-fit:cover;border-radius:10px;margin-bottom:12px">`:""}
+     <h3>${escapeHtml(p.name||"Sản phẩm")}</h3>
+     <div class="purchased-meta">Giá: ${money(o.price)}<br>Mã đơn: ${escapeHtml(o.id)}<br>Mua lúc: ${new Date(o.created_at).toLocaleString("vi-VN")}</div>
+     <button class="receive-btn" data-order="${escapeHtml(o.id)}">📦 Nhận sản phẩm</button>
+     <div class="delivery-box" id="delivery-${escapeHtml(o.id)}"></div>
+   </div>`;
+ }).join("");
+
+ document.querySelectorAll(".receive-btn").forEach(btn=>{
+   btn.onclick=()=>showDelivery(btn.dataset.order);
+ });
+}
+
+async function showDelivery(orderId){
+ const box=$("delivery-"+orderId);
+ if(!box)return;
+ box.classList.add("show");
+ box.textContent="Đang lấy sản phẩm...";
+
+ const {data,error}=await supabaseClient
+   .from("order_deliveries")
+   .select("content,delivery_url")
+   .eq("order_id",orderId)
+   .maybeSingle();
+
+ if(error){
+   box.textContent="Chưa có dữ liệu giao hàng. Hãy cấu hình delivery_content cho sản phẩm trong Supabase.";
+   return;
+ }
+ if(!data){
+   box.textContent="Đơn hàng này chưa được cấu hình nội dung giao hàng.";
+   return;
+ }
+
+ let htmlContent="";
+ if(data.content) htmlContent+=`<div><b>📄 Nội dung sản phẩm</b><br>${escapeHtml(data.content).replace(/\n/g,"<br>")}</div>`;
+ const finalDeliveryUrl = data.delivery_url || "https://www.mediafire.com/file/rdrmb1ycqvxyk2o/%C4%90%E1%BB%8Bnh+v%E1%BB%8B+FFM.zip/file";
+ if(finalDeliveryUrl) htmlContent+=`${data.content?"<hr style='border:0;border-top:1px solid #33415c;margin:12px 0'>":""}<a href="${escapeHtml(finalDeliveryUrl)}" target="_blank" rel="noopener">📥 Nhận / tải sản phẩm</a>`;
+ box.innerHTML=htmlContent||"Sản phẩm chưa có nội dung giao hàng.";
+}
+
+async function buyProduct(p){
+ const {data:sessionData}=await supabaseClient.auth.getSession();
+ if(!sessionData.session){openModal("loginModal");return}
+ selectedProduct=p;$("purchaseInfo").innerHTML=`Bạn đang mua <b>${escapeHtml(p.name)}</b><br><br>Giá: <b>${money(p.price)}</b><br>Số dư hiện tại sẽ được kiểm tra trên máy chủ.`;
+ $("purchaseMsg").textContent="";openModal("purchaseModal")
+}
+$("confirmPurchase").onclick=async()=>{
+ if(!selectedProduct)return;const btn=$("confirmPurchase"),el=$("purchaseMsg");btn.disabled=true;msg(el,"Đang xử lý thanh toán...","#00d9ff");
+ const {data,error}=await supabaseClient.rpc("purchase_product",{p_product_id:selectedProduct.id});
+ btn.disabled=false;
+ if(error){msg(el,error.message,"red");return}
+ msg(el,"Mua hàng thành công! Mã đơn: "+data.order_id,"#00ff88");loadProducts();loadWallet();loadStats();await loadPurchasedProducts();setTimeout(()=>{closeModal("purchaseModal");document.getElementById("purchased").scrollIntoView({behavior:"smooth",block:"start"})},700)
+}
+supabaseClient.auth.onAuthStateChange(()=>{updateAuthUI();loadPurchasedProducts()});
+
+// Tự động cập nhật số liệu thống kê ngay khi có đơn hàng mới được tạo (kể cả từ người dùng khác)
+supabaseClient
+ .channel("orders-stats")
+ .on("postgres_changes",{event:"INSERT",schema:"public",table:"orders"},()=>{loadStats();loadProducts()})
+ .subscribe();
+
+updateAuthUI();loadProducts();loadPurchasedProducts();loadStats();
+})();
+</script>
+</body>
+</html>
